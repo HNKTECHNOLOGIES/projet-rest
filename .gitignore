@@ -1,0 +1,23 @@
+target/
+
+### IDE ###
+.idea/
+*.iml
+.vscode/
+
+### Logs ###
+*.log
+
+### Storage runtime content ###
+storage/*
+!storage/incoming/
+!storage/incoming/.gitkeep
+!storage/processing/
+!storage/processing/.gitkeep
+!storage/outgoing/
+!storage/outgoing/.gitkeep
+!storage/archive/
+!storage/archive/.gitkeep
+
+### OS ###
+.DS_Store

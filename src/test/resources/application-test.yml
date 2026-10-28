@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: ${RLOC_TEST_DB_URL:jdbc:h2:mem:rloc_async;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1}
+    username: ${RLOC_TEST_DB_USERNAME:sa}
+    password: ${RLOC_TEST_DB_PASSWORD:}
+    driver-class-name: ${RLOC_TEST_DB_DRIVER:org.h2.Driver}
+  flyway:
+    enabled: true
+    locations: ${RLOC_FLYWAY_LOCATIONS:classpath:db/migration}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: ${RLOC_TEST_HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: never

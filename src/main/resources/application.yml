@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: rloc-async
+  profiles:
+    default: dev
+  datasource:
+    url: ${RLOC_DB_URL}
+    username: ${RLOC_DB_USERNAME}
+    password: ${RLOC_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: never
+  servlet:
+    multipart:
+      enabled: false
+
+server:
+  port: ${SERVER_PORT:8080}
+
+rloc:
+  storage:
+    incoming-dir: ${RLOC_STORAGE_INCOMING_DIR:storage/incoming}
+    processing-dir: ${RLOC_STORAGE_PROCESSING_DIR:storage/processing}
+    outgoing-dir: ${RLOC_STORAGE_OUTGOING_DIR:storage/outgoing}
+    archive-dir: ${RLOC_STORAGE_ARCHIVE_DIR:storage/archive}
+  async-request:
+    max-size-bytes: ${RLOC_ASYNC_REQUEST_MAX_SIZE_BYTES:52428800}
+    max-element-count: ${RLOC_ASYNC_REQUEST_MAX_ELEMENT_COUNT:100000}
+  batch:
+    max-concurrent-jobs: ${RLOC_BATCH_MAX_CONCURRENT_JOBS:2}
+  api:
+    max-request-size-bytes: ${RLOC_API_MAX_REQUEST_SIZE_BYTES:52428800}
+  os55:
+    batch:
+      chunk-size: ${RLOC_OS55_BATCH_CHUNK_SIZE:100}

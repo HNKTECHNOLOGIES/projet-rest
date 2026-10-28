@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${RLOC_DB_URL:jdbc:postgresql://localhost:5432/rloc_async}
+    username: ${RLOC_DB_USERNAME:rloc}
+    password: ${RLOC_DB_PASSWORD:rloc}
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    fr.gouv.finances.rloc.async: DEBUG
